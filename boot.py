@@ -15,8 +15,8 @@ cascPath = "./config/haarcascade_frontalface_default.xml"
 faceCascade = cv2.CascadeClassifier(cascPath)
 
 video_capture = cv2.VideoCapture(0)
-video_capture.set(3,600)
-video_capture.set(4,400)
+video_capture.set(3,800)
+video_capture.set(4,600)
 # Path to the images
 path = './images'
 # Call the get_images_and_labels function and get the face images and the
