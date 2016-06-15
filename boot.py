@@ -69,7 +69,7 @@ def show_frame():
         print nbr_predicted,conf
         #distance = 1.0f - sqrt( distSq / (float)(nTrainFaces * nEigens) ) / 255.0f
         font = cv2.FONT_HERSHEY_SIMPLEX
-        cv2.putText(frame,people[str(nbr_predicted)],((w/2)-10,(h/2)-10), font, 1,(255,255,255),2,3)
+        #cv2.putText(frame,people[str(nbr_predicted)],((w/2)-10,(h/2)-10), font, 1,(255,255,255),2,3)
     cv2image = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     img = Image.fromarray(cv2image)
     imgtk = ImageTk.PhotoImage(image=img)
