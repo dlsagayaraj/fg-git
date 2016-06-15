@@ -78,7 +78,7 @@ def show_frame(noauth):
     imgtk = ImageTk.PhotoImage(image=img)
     lmain.imgtk = imgtk
     lmain.configure(image=imgtk)
-    lmain.after(10, lambda:show_frame(True))
+    lmain.after(10, lambda:show_frame(noauth))
 
 show_frame(True)
 root.mainloop()
