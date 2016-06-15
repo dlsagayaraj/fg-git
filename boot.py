@@ -50,7 +50,7 @@ root.overrideredirect(1)
 root.bind('<Escape>', lambda e: root.quit())
 lmain = tk.Label(root)
 lmain.pack()
-noauth=true
+noauth=True
 def show_frame():
     ret, frame = video_capture.read()
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -68,7 +68,7 @@ def show_frame():
         print nbr_predicted,conf
         if(nbr_predicted in people and noauth):
             call(["election", "./html/"])
-            noauth=true
+            noauth=False
         #distance = 1.0f - sqrt( distSq / (float)(nTrainFaces * nEigens) ) / 255.0f
         font = cv2.FONT_HERSHEY_SIMPLEX
         #cv2.putText(frame,people[str(nbr_predicted)],((w/2)-10,(h/2)-10), font, 1,(255,255,255),2,3)
