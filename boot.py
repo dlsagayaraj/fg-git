@@ -40,8 +40,8 @@ ws = root.winfo_screenwidth() # width of the screen
 hs = root.winfo_screenheight() # height of the screen
 
 # calculate x and y coordinates for the Tk root window
-x = (ws/2) - (w/2)
-y = (hs/2) - (h/2)
+x = (ws) - (w)
+y = (hs) - (h)
 
 # set the dimensions of the screen
 # and where it is placed
@@ -69,13 +69,12 @@ def show_frame():
         print str(nbr_predicted)
         if(people[str(nbr_predicted)] and noauth):
             call(["electron", "./html/"])
-            print noauth
             noauth=False
         #distance = 1.0f - sqrt( distSq / (float)(nTrainFaces * nEigens) ) / 255.0f
         font = cv2.FONT_HERSHEY_SIMPLEX
         #cv2.putText(frame,people[str(nbr_predicted)],((w/2)-10,(h/2)-10), font, 1,(255,255,255),2,3)
     cv2image = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    img = Image.fromarray(cv2image)
+    img = Image.fromarray(frame)
     imgtk = ImageTk.PhotoImage(image=img)
     lmain.imgtk = imgtk
     lmain.configure(image=imgtk)
