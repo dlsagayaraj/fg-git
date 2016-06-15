@@ -4,14 +4,15 @@ import cv2, os
 import numpy as np
 from PIL import Image
 
-# For face detection we will use the Haar Cascade provided by OpenCV.
-cascadePath = "./config/haarcascade_frontalface_default.xml"
-faceCascade = cv2.CascadeClassifier(cascadePath)
 
-# For face recognition we will the the LBPH Face Recognizer
-recognizer = cv2.createLBPHFaceRecognizer()
 
 def get_images_and_labels(path):
+    # For face detection we will use the Haar Cascade provided by OpenCV.
+    cascadePath = "./config/haarcascade_frontalface_default.xml"
+    faceCascade = cv2.CascadeClassifier(cascadePath)
+
+    # For face recognition we will the the LBPH Face Recognizer
+    recognizer = cv2.createLBPHFaceRecognizer()
     # Append all the absolute image paths in a list image_paths
     # We will not read the image with the .sad extension in the training set
     # Rather, we will use them to test our accuracy of the training
