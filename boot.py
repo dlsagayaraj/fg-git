@@ -50,8 +50,9 @@ root.overrideredirect(1)
 root.bind('<Escape>', lambda e: root.quit())
 lmain = tk.Label(root)
 lmain.pack()
-noauth=True
+
 def show_frame():
+    noauth=True
     ret, frame = video_capture.read()
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     predict_image = np.array(gray, 'uint8')
@@ -65,9 +66,10 @@ def show_frame():
     for (x, y, w, h) in faces:
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 4)
         nbr_predicted, conf = recognizer.predict(predict_image[y: y + h, x: x + w])
-        print nbr_predicted,conf
-        if(nbr_predicted in people and noauth):
+        print str(nbr_predicted)
+        if(people[str(nbr_predicted)] and noauth):
             call(["election", "./html/"])
+            print noauth
             noauth=False
         #distance = 1.0f - sqrt( distSq / (float)(nTrainFaces * nEigens) ) / 255.0f
         font = cv2.FONT_HERSHEY_SIMPLEX
@@ -77,7 +79,8 @@ def show_frame():
     imgtk = ImageTk.PhotoImage(image=img)
     lmain.imgtk = imgtk
     lmain.configure(image=imgtk)
-    lmain.after(10, show_frame)
+    if(noauth):
+        lmain.after(10, show_frame)
 
 show_frame()
 root.mainloop()
