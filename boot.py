@@ -68,7 +68,7 @@ def show_frame():
         nbr_predicted, conf = recognizer.predict(predict_image[y: y + h, x: x + w])
         print str(nbr_predicted)
         if(people[str(nbr_predicted)] and noauth):
-            call(["election", "./html/"])
+            call(["electron", "./html/"])
             print noauth
             noauth=False
         #distance = 1.0f - sqrt( distSq / (float)(nTrainFaces * nEigens) ) / 255.0f
