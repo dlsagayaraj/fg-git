@@ -41,7 +41,7 @@ hs = root.winfo_screenheight() # height of the screen
 
 # calculate x and y coordinates for the Tk root window
 x = (ws) - (w)
-y = (hs) - (h)
+y = (hs) - (h+100)
 
 # set the dimensions of the screen
 # and where it is placed
@@ -52,7 +52,6 @@ lmain = tk.Label(root)
 lmain.pack()
 
 def show_frame(noauth):
-    print noauth
     ret, frame = video_capture.read()
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     predict_image = np.array(gray, 'uint8')
@@ -79,7 +78,7 @@ def show_frame(noauth):
     imgtk = ImageTk.PhotoImage(image=img)
     lmain.imgtk = imgtk
     lmain.configure(image=imgtk)
-    lmain.after(10, lambda e:show_frame(False))
+    lmain.after(10, lambda:show_frame(noauth))
 
 show_frame(True)
 root.mainloop()
