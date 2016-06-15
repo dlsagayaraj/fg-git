@@ -1,5 +1,7 @@
 const {app, BrowserWindow} = require('electron');
 
+global.sharedObject = {prop1: process.argv}
+
 let mainWindow;
 
 // Quit when all windows are closed.
@@ -15,6 +17,7 @@ app.on('ready', function() {
 
   // and load the index.html of the app.
   mainWindow.loadURL('file://' + __dirname + '/index.html');
+  setTimeout(function(){ app.quit(); }, 3000);
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {

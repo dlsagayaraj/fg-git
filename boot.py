@@ -9,7 +9,7 @@ from PIL import Image, ImageTk
 from subprocess import call
 
 
-w, h = 600, 400
+w, h = 400, 200
 
 cascPath = "./config/haarcascade_frontalface_default.xml"
 faceCascade = cv2.CascadeClassifier(cascPath)
@@ -30,7 +30,7 @@ recognizer = cv2.createLBPHFaceRecognizer()
 recognizer.train(images, np.array(labels))
 people={'8853':"Daniel",'8854':"Karthik"}
 print people
-
+loggedIn={}
 
 
 
@@ -51,8 +51,8 @@ root.bind('<Escape>', lambda e: root.quit())
 lmain = tk.Label(root)
 lmain.pack()
 
-def show_frame():
-    noauth=True
+def show_frame(noauth):
+    print noauth
     ret, frame = video_capture.read()
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     predict_image = np.array(gray, 'uint8')
@@ -67,7 +67,8 @@ def show_frame():
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 4)
         nbr_predicted, conf = recognizer.predict(predict_image[y: y + h, x: x + w])
         print str(nbr_predicted)
-        if(people[str(nbr_predicted)] and noauth):
+        if(people[str(nbr_predicted)] and noauth and conf>40):
+            
             call(["electron", "./html/"])
             noauth=False
         #distance = 1.0f - sqrt( distSq / (float)(nTrainFaces * nEigens) ) / 255.0f
@@ -78,8 +79,7 @@ def show_frame():
     imgtk = ImageTk.PhotoImage(image=img)
     lmain.imgtk = imgtk
     lmain.configure(image=imgtk)
-    if(noauth):
-        lmain.after(10, show_frame)
+    lmain.after(10, lambda e:show_frame(False))
 
-show_frame()
+show_frame(True)
 root.mainloop()
