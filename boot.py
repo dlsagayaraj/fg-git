@@ -74,7 +74,7 @@ def show_frame():
         font = cv2.FONT_HERSHEY_SIMPLEX
         #cv2.putText(frame,people[str(nbr_predicted)],((w/2)-10,(h/2)-10), font, 1,(255,255,255),2,3)
     cv2image = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    img = Image.fromarray(frame)
+    img = Image.fromarray(cv2image)
     imgtk = ImageTk.PhotoImage(image=img)
     lmain.imgtk = imgtk
     lmain.configure(image=imgtk)
