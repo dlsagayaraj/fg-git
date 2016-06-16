@@ -68,6 +68,7 @@ def show_frame(noauth):
         print str(nbr_predicted)
         if(people[str(nbr_predicted)] and noauth and conf>40):
             
+            call(["say", "Hello  Your Access is Granted"])
             call(["electron", "./html/"])
             noauth=False
         #distance = 1.0f - sqrt( distSq / (float)(nTrainFaces * nEigens) ) / 255.0f
