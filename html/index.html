@@ -32,7 +32,7 @@ Stark Industries Logo
   z-index: 40;
 }
 
-h1 {
+#logo h1 {
   animation: text-glow 2s ease-out infinite alternate;
   font-family: 'Ubuntu', sans-serif;
   color: #0aabeb;
@@ -43,7 +43,7 @@ h1 {
   text-shadow: 0 0 10px #000, 0 0 20px #000, 0 0 30px #000, 0 0 40px #000, 0 0 50px #000, 0 0 60px #000, 0 0 70px #000;
   top: 50px;
 }
-h1:before {
+#logo h1:before {
   animation: before-glow 2s ease-out infinite alternate;
   border-left: 535px solid transparent;
   border-bottom: 10px solid #00a4a2;
@@ -54,7 +54,7 @@ h1:before {
   top: -10px;
   width: 0;
 }
-h1:after {
+#logo h1:after {
   animation: after-glow 2s ease-out infinite alternate;
   border-left: 100px solid transparent;
   border-top: 16px solid #00a4a2;
@@ -348,6 +348,14 @@ Animation Keyframes
 <section class="stark-login">
   
   <form action="" method="">	
+      <div id="fade-box">
+     <div style="display:none">
+        <h1>Hello, Welcome</h1>
+        <img  width="150px" height="150px" src="http://www.tuitionlanka.lk/sakya/uploads/noprofile.jpg"/>
+         </div>
+      </div>
+      </form>
+      
     <div id="fade-box">
       <div class="hexagons">
         <span>&#x2B22;</span>
