@@ -67,8 +67,7 @@ def show_frame(noauth):
         nbr_predicted, conf = recognizer.predict(predict_image[y: y + h, x: x + w])
         print str(nbr_predicted)
         if(people[str(nbr_predicted)] and noauth and conf>40):
-            
-            call(["say", "Hello "+people[str(nbr_predicted)]+" Your Access is Granted"])
+            #call(["say", '"Access Granted"'])
             call(["electron", "./html/"])
             noauth=False
         #distance = 1.0f - sqrt( distSq / (float)(nTrainFaces * nEigens) ) / 255.0f
