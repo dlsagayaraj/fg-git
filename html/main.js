@@ -1,8 +1,7 @@
 const {app, BrowserWindow} = require('electron');
-global.sharedObject = {prop1: process.argv}
+
 var remote = require('electron').remote,
-arguments = remote.getGlobal('sharedObject').prop1;
-alert(arguments);
+alert({prop1: process.argv});
 
 
 
