@@ -18,7 +18,7 @@ app.on('ready', function() {
 
   // and load the index.html of the app.
   mainWindow.loadURL('file://' + __dirname + '/index.html');
-  setTimeout(function(){ app.quit(); }, 30000);
+  setTimeout(function(){ app.quit(); }, 20000);
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
