@@ -68,7 +68,7 @@ def show_frame(noauth):
         print str(nbr_predicted)
         if(people[str(nbr_predicted)] and noauth and conf>40):
             #call(["say", '"Access Granted"'])
-            call(["electron", "./html/"])
+            call(["/usr/local/bin/electron", "./html/main.js","Daniel"])
             noauth=False
         #distance = 1.0f - sqrt( distSq / (float)(nTrainFaces * nEigens) ) / 255.0f
         font = cv2.FONT_HERSHEY_SIMPLEX
