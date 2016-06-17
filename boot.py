@@ -65,7 +65,7 @@ def show_frame(noauth):
     for (x, y, w, h) in faces:
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 4)
         nbr_predicted, conf = recognizer.predict(predict_image[y: y + h, x: x + w])
-        print str(nbr_predicted)
+        print str(nbr_predicted),conf
         if(people[str(nbr_predicted)] and noauth and conf>40):
             #call(["say", '"Access Granted"'])
             call(["/usr/local/bin/electron", "./html/main.js",people[str(nbr_predicted)]])
