@@ -17,7 +17,7 @@ app.on('ready', function() {
   mainWindow = new BrowserWindow({width: 600, height: 600, frame: false});
 
   // and load the index.html of the app.
-  mainWindow.loadURL('file://' + __dirname + '/'+process.argv[0]);
+  mainWindow.loadURL('file://' + __dirname + '/index.html');
   setTimeout(function(){ app.quit(); }, 30000);
 
   // Emitted when the window is closed.
