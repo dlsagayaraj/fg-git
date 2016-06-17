@@ -1,7 +1,7 @@
 const {app, BrowserWindow} = require('electron');
 
 var remote = require('electron').remote,
-alert({prop1: process.argv});
+console.log( process.argv[0]);
 
 
 
